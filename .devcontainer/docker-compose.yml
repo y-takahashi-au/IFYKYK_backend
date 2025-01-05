@@ -1,0 +1,42 @@
+services:
+  java-auth:
+    container_name: java-auth
+    build: .
+    command: sleep infinity
+    environment:
+      DB_HOST: db-mysql
+      DB_NAME: auth
+      DB_USERNAME: root
+      DB_PASSWORD: root
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+    networks:
+      - lalingua
+
+  db-mysql:
+    image: mysql:8.4
+    container_name: db-mysql
+    #volumes:
+      # Mount the root folder that contains .git
+      #- ./my.cnf:/etc/mysql/conf.d/my.cnf
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: lalingua
+      MYSQL_PASSWORD: lalingua
+      MYSQL_DATABASE: auth
+    networks:
+      - lalingua
+  curl:
+    container_name: curl
+    command: sleep infinity
+    image: ubuntu:latest
+    networks:
+      - lalingua
+
+networks:
+  lalingua:
+    driver: bridge
+      

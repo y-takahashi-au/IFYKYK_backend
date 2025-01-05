@@ -1,0 +1,31 @@
+CREATE TABLE `flat_house` (
+  `id` VARCHAR(26) NOT NULL,
+  `address` VARCHAR(100)  NOT NULL,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `flat_house_review` (
+  `id` VARCHAR(26) NOT NULL,
+  `flat_house_id` VARCHAR(26) NOT NULL,
+  `rent` INT NOT NULL,
+  `move_in` DATE NOT NULL,
+  `move_out` DATE NOT NULL,
+  `star` TINYINT NOT NULL,
+  `review` TEXT,
+  `account_id` VARCHAR(26) NOT NULL,
+  `status` VARCHAR(10)  NOT NULL,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`flat_house_id`) REFERENCES flat_house(id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `flat_house_review_picture` (
+  `id` VARCHAR(26) NOT NULL,
+  `flat_house_review_id` VARCHAR(26) NOT NULL,
+  `picture_path` VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`flat_house_review_id`) REFERENCES flat_house_review(id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

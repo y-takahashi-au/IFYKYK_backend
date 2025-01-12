@@ -1,6 +1,6 @@
 spring:
   application:
-    name: 'lalingua'
+    name: 'ifykyk'
   datasource:
     #    url: jdbc:mysql://${DB_HOST}:3306/${DB_NAME}?allowPublicKeyRetrieval=true&useSSL=false
     #    username: ${DB_USERNAME}

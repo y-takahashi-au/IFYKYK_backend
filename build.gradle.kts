@@ -30,7 +30,6 @@ dependencies {
     implementation("org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.6.8")
     compileOnly("org.projectlombok:lombok:1.18.34")
     annotationProcessor("org.projectlombok:lombok:1.18.34")
-    implementation("com.google.protobuf:protobuf-java:4.29.3")
     implementation("com.mysql:mysql-connector-j:9.0.0")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
@@ -52,6 +51,6 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-validation:3.4.1")
 }
 
-tasks.withType<Test> {
-    useJUnitPlatform()
-}
+//tasks.withType<Test> {
+//    useJUnitPlatform()
+//}

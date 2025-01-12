@@ -13,6 +13,10 @@ java {
     }
 }
 
+springBoot {
+    mainClass.set("com.example.demo.DemoApplication")
+}
+
 repositories {
     mavenCentral()
 }
